@@ -3,7 +3,13 @@
   padding-bottom: 64px;
 }
 
+/**
+  * this is needed because static elements are rendered first then non-static elements
+  * by making the max width wrapper relative, this forces the max width wrapper to render after
+  * the perspective box; effectively overlaying it. No z-index manipulation necessary!
+*/
 .maxWidthWrapper {
+  position: relative;
 }
 
 .header {
@@ -34,4 +40,13 @@
 
 .controlColumn {
   width: 50%;
+}
+
+.perspectiveBox {
+  position: fixed;
+  height: 40%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: hsl(195deg, 20%, 86%);
 }
